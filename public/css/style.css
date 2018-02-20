@@ -36,12 +36,6 @@ h2 {
   margin-bottom: 0;
 }
 
-/*
-    Position the month names, day numbers, and person names.
-    
-    The day numbers are on the left with a list of person names to the right of them.
-*/
-
 h1 {
     margin: 0;
     border-bottom: 1px dotted grey;
@@ -51,43 +45,68 @@ h2 {
     margin: 0;
 }
 
-h2 ~ p {    /* only applies to p-elements on the main page */
+h2 ~ p {
     margin: 0;
     position: relative;
-    top: -40px;     /* move person names to line up with the day number */
-    left: 50px;     /* make sure the person names don't overlap the day number */
+    top: -40px;
+    left: 50px;
 }
 
-p:last-of-type {    /* the last p-element should act like a normal paragraph since it's not a person name */
+p:last-of-type {
     position: static;
 }
 
-/*
-    Set hyperlink styles.
-*/
+textarea {
+  width: 250px;
+  height: 150px;
+}
+
+table {
+  width: 100%;
+}
+
+td:nth-of-type(1) {
+  width: 3.5%;
+  font-size: 20px;
+  text-align: center;
+}
+
+td {
+  border-bottom: 1px dotted grey;
+}
+
+td:nth-of-type(3) {
+  width: 6%;
+  color: green;
+  text-align: center;
+}
+
+td:nth-of-type(4) {
+  width: 6%;
+  text-align: center;
+  color: purple;
+}
+
+a {
+  text-decoration: none;
+}
 
 .delete {
-    color: red;
-    text-decoration: none;
+    color: rgb(200,0,0);
+    font-weight: bold;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-p:last-of-type a {  /* the add link */
+p:last-of-type a {
     color: blue;
     
-    display: block;     /* we can't center the parent element, because no all pages need their last paragraph centered */
+    display: block;
     text-align: center;
     margin-bottom: 20px;
 }
-
-/*
-    Set the style of forms.
-    
-    Labels are in a column to the left, with input fields to the right and spanning the entire remaining width.
-*/
 
 form p {
     margin: 5px 0;
@@ -99,7 +118,7 @@ form label {
 }
 
 form input[type=submit]:only-child {
-    margin-left: 100px;     /* place submit button underneath fields */
+    margin-left: 100px;
 }
 
 .test {

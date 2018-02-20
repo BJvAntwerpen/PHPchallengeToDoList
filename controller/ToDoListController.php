@@ -12,12 +12,34 @@ function create() {
 	render('toDoList/create');
 }
 
-function createSave() {}
+function createSave() {
+	if (!createToDoItem()) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'toDoList/index');
+}
 
-function edit($id) {}
+function edit($id) {
+	render('toDoList/edit', array(
+		'ToDoItem' => getToDoItem($id)
+		));
+}
 
-function editSave() {}
+function editSave() {
+	if (!editToDoItem()) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'toDoList/index');
+}
 
-function delete($id) {}
+function delete($id) {
+	if (!deleteToDoItem($id)) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'toDoList/index');
+}
 
 ?>
