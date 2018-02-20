@@ -66,19 +66,13 @@ p:last-of-type {    /* the last p-element should act like a normal paragraph sin
     Set hyperlink styles.
 */
 
-a {
-    color: black;
+.delete {
+    color: red;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-a + a {     /* delete links */
-    color: red;
-    font-size: 80%;
-    vertical-align: super;
 }
 
 p:last-of-type a {  /* the add link */
@@ -106,4 +100,8 @@ form label {
 
 form input[type=submit]:only-child {
     margin-left: 100px;     /* place submit button underneath fields */
+}
+
+.test {
+  display: inline;
 }

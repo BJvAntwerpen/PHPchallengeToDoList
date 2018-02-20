@@ -1,5 +1,5 @@
 <?php
 
 function index() {
-	echo "<p>ERROR :P</p>";
+	echo "<h1>YOU SHALL NOT PASS!!!</h1>";
 } ?>

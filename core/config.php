@@ -2,7 +2,7 @@
 
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'PHPchallengeToDoList');
+define('DB_NAME', 'phpchallengetodolist');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8');
