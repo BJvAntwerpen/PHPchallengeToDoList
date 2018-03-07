@@ -56,11 +56,6 @@ p:last-of-type {
     position: static;
 }
 
-textarea {
-  width: 250px;
-  height: 150px;
-}
-
 table {
   width: 100%;
 }
@@ -102,7 +97,6 @@ a:hover {
 
 p:last-of-type a {
     color: blue;
-    
     display: block;
     text-align: center;
     margin-bottom: 20px;
@@ -114,13 +108,12 @@ form p {
 
 form label {
     display: inline-block;
-    width: 100px;
 }
 
 form input[type=submit]:only-child {
     margin-left: 100px;
 }
 
-.test {
+.list {
   display: inline;
 }

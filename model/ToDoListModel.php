@@ -22,6 +22,7 @@ function createToDoItem () {
 	$query->execute(array(
 		':listItem' => $listItem
 		));
+	return true;
 }
 
 function getToDoItem($id) {
@@ -36,21 +37,33 @@ function getToDoItem($id) {
 }
 
 function editToDoItem() {
-	$listItem = isset($_POST['todo']) ? $_POST['todo'] : null;
+	$toDoItem = isset($_POST['todo']) ? $_POST['todo'] : null;
 	$id = isset($_POST['id']) ? $_POST['id'] : null;
 
-	if (strlen($listItem) == 0) {
+	if (strlen($toDoItem) == 0) {
 		return false;
 	}
 
 	$db = openDatabaseConnection();
-	$sql = "INSERT INTO todolist(ToDo_listItem) VALUES (:listItem)";
+	$sql = "UPDATE todolist SET ToDo_listItem = :todo_item WHERE ToDo_ID = :todo_id";
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':listItem' => $listItem
+		':todo_item' => $toDoItem,
+		':todo_id' => $id
 		));
+	return true;
 }
 
 function deleteToDoItem($id = null) {
-
+	if (!$id) {
+		return false;
+	}
+	$db = openDatabaseConnection();
+	$sql = "DELETE FROM todolist WHERE ToDo_ID = :todo_id";
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		":todo_id" => $id
+		));
+	$db = null;
+	return true;
 }

@@ -1,6 +1,7 @@
+<a href="<?= URL ?>ToDoList">Return</a>
 <form method="POST" action="<?= URL ?>ToDoList/editSave">
-	<label>Input your 'thing' to do</label><br>
-	<textarea placeholder="TO DO" name="todo"><?php echo $ToDoItem['ToDo_listItem'] ?></textarea><br>
-	<input type="submit" value="Add to the 'To Do List'">
+	<label>Change your to do list name</label><br>
+	<input type="text" name="todo" placeholder="TO DO" value="<?php echo $ToDoItem['ToDo_listItem'] ?>"><br>
+	<input type="submit" value="Change the name">
 	<input type="hidden" name="id" value="<?= $ToDoItem['ToDo_ID'] ?>">
 </form>
