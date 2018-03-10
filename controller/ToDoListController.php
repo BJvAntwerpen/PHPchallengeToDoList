@@ -41,5 +41,3 @@ function delete($id) {
 	}
 	header('Location:' . URL . 'toDoList/index');
 }
-
-?>

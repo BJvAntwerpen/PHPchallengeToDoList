@@ -60,26 +60,23 @@ table {
   width: 100%;
 }
 
-td:nth-of-type(1) {
+.delCell {
   width: 3.5%;
-  font-size: 20px;
   text-align: center;
 }
 
 td {
   border-bottom: 1px dotted grey;
+  border-right: 1px dotted grey;
 }
 
-td:nth-of-type(3) {
+.viewCell, .editCell {
   width: 6%;
-  color: green;
   text-align: center;
 }
 
-td:nth-of-type(4) {
-  width: 6%;
-  text-align: center;
-  color: purple;
+.textCell {
+
 }
 
 a {
@@ -89,13 +86,22 @@ a {
 .delete {
     color: rgb(200,0,0);
     font-weight: bold;
+    font-size: 20px;
+}
+
+.view {
+  color: rgb(0,200,0);
+}
+
+.edit {
+  color: rgb(235,150,0);
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-p:last-of-type a {
+p:last-of-type a,.last {
     color: blue;
     display: block;
     text-align: center;
@@ -114,6 +120,18 @@ form input[type=submit]:only-child {
     margin-left: 100px;
 }
 
-.list {
+#header {
+  text-align: center;
+}
+
+.tasks {
   display: inline;
+}
+
+.duration {
+  color: green;
+}
+
+.status {
+  color: green;
 }
