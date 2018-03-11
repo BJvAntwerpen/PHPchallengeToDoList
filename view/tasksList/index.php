@@ -1,3 +1,5 @@
+<?php $_SESSION['taskList'] = $todolistname['ToDo_ID']; ?>
+<p><a href="<?= URL ?>ToDoList">&#60;&#60;&#60; Return to the lists</a></p>
 <h1>Tasks for '<?= $todolistname['ToDo_listItem'] ?>'</h1>
 <table>
 	<tr>
@@ -11,8 +13,8 @@
 	<tr>
 		<td class="delCell"><a class="delete" href="#">X</a></td>
 		<td class="textCell"><p class="tasks"><?php echo $task['task_text']?></p></td>
-		<td><p class="duration"><?php echo $task['task_duration']?></p></td>
-		<td><p class="status"><?php echo $task['task_status']?></p></td>
+		<td><p class="tasks"><?php echo $task['task_duration']?></p></td>
+		<td><p class="tasks"><?php echo $task['task_status']?></p></td>
 		<td class="editCell"><a class="edit" href="#">edit</a></td>
 	</tr>
 <?php } ?>

@@ -14,7 +14,16 @@ function create() {
 	render('tasksList/create');
 }
 
-function createSave() {}
+function createSave() {
+	$id = $_POST['ToDoListId'];
+	if (!createTask() || !$id) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'tasksList/index/' . $id);
+
+}
+
 function edit($id) {}
 function editSave() {}
 function delete($id) {}

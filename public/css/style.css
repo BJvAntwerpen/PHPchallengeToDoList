@@ -75,10 +75,6 @@ td {
   text-align: center;
 }
 
-.textCell {
-
-}
-
 a {
   text-decoration: none;
 }
@@ -126,12 +122,4 @@ form input[type=submit]:only-child {
 
 .tasks {
   display: inline;
-}
-
-.duration {
-  color: green;
-}
-
-.status {
-  color: green;
 }
