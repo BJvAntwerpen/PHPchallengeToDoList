@@ -70,7 +70,33 @@ function editTask() {
 	return true;
 }
 
-function deleteTask($id = null) {}
+function deleteTask($id = null) {
+	if (!$id) {
+		return false;
+	}
 
-function deleteAllTasks() {}
+	$db = openDatabaseConnection();
+	$sql = 'DELETE FROM tasks WHERE task_ID = :id';
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':id' => $id
+		));
+	$db = null;
+	return true;
+}
+
+function deleteAllTasks($listId = null) {
+	if (!$listId) {
+		return false;
+	}
+
+	$db = openDatabaseConnection();
+	$sql = 'DELETE FROM tasks WHERE ToDo_ID = :listId';
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		':listId' => $listId
+		));
+	$db = null;
+	return true;
+}
 //https://dev.mysql.com/doc/refman/5.7/en/delete.html

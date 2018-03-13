@@ -40,8 +40,20 @@ function editSave() {
 	header('Location:' . URL . 'tasksList/index/' . $id);
 }
 
-function delete($id) {}
+function delete($id) {
+	$task = getTask($id);
+	$listId = $task['ToDo_ID'];
+	if (!deleteTask($id)) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'tasksList/index/' . $listId);
+}
 
 function deleteAll($listId) {
-	echo 'lel del' . $listId;
+	if (!deleteAllTasks($listId)) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'tasksList/index/' . $listId);
 }
