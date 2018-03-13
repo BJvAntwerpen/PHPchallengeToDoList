@@ -1,5 +1,6 @@
 <?php 
 
+require(ROOT . 'model/TasksListModel.php');
 require(ROOT . 'model/ToDoListModel.php');
 
 function index() {
@@ -35,6 +36,10 @@ function editSave() {
 }
 
 function delete($id) {
+	if (!deleteAllTasks($id)) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
 	if (!deleteToDoItem($id)) {
 		header('Location:' . URL . 'error/index');
 		exit();
