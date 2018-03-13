@@ -11,13 +11,13 @@
 	</tr>
 <?php foreach($tasks as $task) { ?>
 	<tr>
-		<td class="delCell"><a class="delete" href="#">X</a></td>
+		<td class="delCell"><a class="delete" href="<?php echo URL . 'TasksList/delete/' . $task['task_ID'] ?>">X</a></td>
 		<td class="textCell"><p class="tasks"><?php echo $task['task_text']?></p></td>
 		<td><p class="tasks"><?php echo $task['task_duration']?></p></td>
 		<td><p class="tasks"><?php echo $task['task_status']?></p></td>
-		<td class="editCell"><a class="edit" href="#">edit</a></td>
+		<td class="editCell"><a class="edit" href="<?php echo URL . 'TasksList/edit/' . $task['task_ID'] ?>">edit</a></td>
 	</tr>
 <?php } ?>
 </table>
 <p class="last"><a href="<?= URL ?>TasksList/create">Add new task on the list</a></p>
-<p class="last"><a href="<?= URL ?>TasksList/deleteAll">Clear the list</a></p>
+<p class="last"><a href="<?php echo URL . 'TasksList/deleteAll/' . $todolistname['ToDo_ID'] ?>">Clear the list</a></p>

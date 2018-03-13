@@ -15,7 +15,7 @@ function create() {
 }
 
 function createSave() {
-	$id = $_POST['ToDoListId'];
+	$id = isset($_POST['ToDoListId']) ? $_POST['ToDoListId'] : null;
 	if (!createTask() || !$id) {
 		header('Location:' . URL . 'error/index');
 		exit();
@@ -24,7 +24,24 @@ function createSave() {
 
 }
 
-function edit($id) {}
-function editSave() {}
+function edit($id) {
+	render('tasksList/edit', array(
+		'task' => getTask($id),
+		'toDoLists' => getAllToDoItems()
+		));
+}
+
+function editSave() {
+	$id = isset($_POST['ToDoListId']) ? $_POST['ToDoListId'] : null;
+	if (!editTask() || !$id) {
+		header('Location:' . URL . 'error/index');
+		exit();
+	}
+	header('Location:' . URL . 'tasksList/index/' . $id);
+}
+
 function delete($id) {}
-function deleteAll() {echo 'lel del';}
+
+function deleteAll($listId) {
+	echo 'lel del' . $listId;
+}
