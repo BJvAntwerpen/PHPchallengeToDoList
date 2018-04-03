@@ -1,0 +1,17 @@
+tips
+sorteren
+	row title is link
+	regen table but sorted
+	url /x/x?sort=z
+	$_GET['sort'] -> z
+	if z=''
+	SELECT * FROM tasks ORDER BY 'z' ASC/DESC
+
+filteren
+	$_GET['filter'] -> y
+	extra WHERE :y = y
+	search area (<input text><input submit>)
+	JavaScript
+		search area uitlezen
+		nieuwe url maken ('window.'location.href)
+	SELECT * FROM tasks WHERE '' = :filter OR '' LIKE %:filter%

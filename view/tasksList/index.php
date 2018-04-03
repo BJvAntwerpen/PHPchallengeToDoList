@@ -1,12 +1,13 @@
 <?php $_SESSION['taskList'] = $todolistname['ToDo_ID']; ?>
 <p><a href="<?= URL ?>ToDoList">&#60;&#60;&#60; Return to the lists</a></p>
+<input type="text" name="" id="inputFilter"><button id="btnFilter">filter</button>
 <h1>Tasks for '<?= $todolistname['ToDo_listItem'] ?>'</h1>
 <table>
 	<tr>
-		<td class="delCell">delete</td>
-		<td class="textCell">task name</td>
-		<td>task duration</td>
-		<td>task status</td>
+		<td class="delCell"><a href="<?php echo URL . 'TasksList/index/' . $todolistname['ToDo_ID'] . '?sort=id' ?>">delete</a></td>
+		<td class="textCell"><a href="<?php echo URL . 'TasksList/index/' . $todolistname['ToDo_ID'] . '?sort=text' ?>">task name</a></td>
+		<td><a href="<?php echo URL . 'TasksList/index/' . $todolistname['ToDo_ID'] . '?sort=duration' ?>">task duration</a></td>
+		<td><a href="<?php echo URL . 'TasksList/index/' . $todolistname['ToDo_ID'] . '?sort=status' ?>">task status</a></td>
 		<td class="editCell">edit</td>
 	</tr>
 <?php foreach($tasks as $task) { ?>

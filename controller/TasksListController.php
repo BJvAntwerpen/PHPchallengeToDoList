@@ -4,9 +4,11 @@ require(ROOT . 'model/TasksListModel.php');
 require(ROOT . 'model/ToDoListModel.php');
 
 function index($id) {
+	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'id';
 	render('tasksList/index', array(
-		'tasks' => getAllTasks($id),
-		'todolistname' => getToDoItem($id)
+		'tasks' => getAllTasks($id, $sort),
+		'todolistname' => getToDoItem($id),
+		'sort' => $sort
 		));
 }
 
