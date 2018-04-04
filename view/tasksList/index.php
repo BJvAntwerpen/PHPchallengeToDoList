@@ -1,6 +1,6 @@
 <?php $_SESSION['taskList'] = $todolistname['ToDo_ID']; ?>
 <p><a href="<?= URL ?>ToDoList">&#60;&#60;&#60; Return to the lists</a></p>
-<input type="text" name="" id="inputFilter"><button id="btnFilter">filter</button>
+<input type="text" id="inputFilter" value="<?php if (isset($_GET['filter'])) { echo $_GET['filter']; } ?>"><button id="btnFilter">filter</button><button id="btnClear">clear filter</button>
 <h1>Tasks for '<?= $todolistname['ToDo_listItem'] ?>'</h1>
 <table>
 	<tr>
