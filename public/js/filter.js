@@ -22,12 +22,16 @@ var filterModule = (function() {
 		newUrl = url[0]
 		if (url[1] != undefined) {
 			if (!newUrl.includes('sort')) {
-				if (!newUrl.includes('?')) {
-					newUrl += '?';
-				} else {
-					newUrl += '&';
+				for (var i = 0; i < url[1].length; i++) {
+					if (url[1][i].includes('sort')) {
+						if (!newUrl.includes('?')) {
+							newUrl += '?';
+						} else {
+							newUrl += '&';
+						}				
+						newUrl += url[1][i];
+					}
 				}
-				newUrl += url[1][0];
 			}
 			if (input != '' && !newUrl.includes('filter')) {
 				if (!newUrl.includes('?')) {
@@ -38,15 +42,14 @@ var filterModule = (function() {
 				newUrl += 'filter=' + input;
 			}
 		}
-
-		location.href = url;
+		location.href = newUrl;
 	};
 
 	var clearFilter = function() {
 		splitUrl();
 		newUrl = url[0];
 		if (url[1] != undefined) {
-			if (url[1])
+			//if (url[1])
 		}
 		/*
 		url1 + '?' + url[sort]
@@ -83,7 +86,7 @@ var filterModule = (function() {
 
 		*/
 		console.log(newUrl);
-		//location.href = url;
+		//location.href = newUrl;
 	};
 
 	btnFilter.addEventListener('click',updateUrlFilter);
