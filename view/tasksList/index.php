@@ -1,6 +1,6 @@
 <?php $_SESSION['taskList'] = $todolistname['ToDo_ID']; ?>
 <p><a href="<?= URL ?>ToDoList">&#60;&#60;&#60; Return to the lists</a></p>
-<input type="text" id="inputFilter" value="<?php if (isset($_GET['filter'])) { echo $_GET['filter']; } ?>"><button id="btnFilter">filter</button><button id="btnClear">clear filter</button>
+<input type="text" id="inputFilter" value="<?php if (isset($_GET['filter'])) { echo $_GET['filter']; } ?>"><button id="btnFilter">filter</button>
 <h1>Tasks for '<?= $todolistname['ToDo_listItem'] ?>'</h1>
 <table>
 	<tr>
@@ -21,4 +21,4 @@
 <?php } ?>
 </table>
 <p class="last"><a href="<?= URL ?>TasksList/create">Add new task on the list</a></p>
-<p class="last"><a href="<?php echo URL . 'TasksList/deleteAll/' . $todolistname['ToDo_ID'] ?>">Clear the list</a></p>
+<p class="last"><a href="#" id="clearAll">Clear the list</a></p>

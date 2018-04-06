@@ -1,24 +1,24 @@
 <?php
 
-function getAllTasks($id, $sort) {
+function getAllTasks($id, $sort, $filter) {
 	$db = openDatabaseConnection();
 
+	$filter = '%'.$filter .'%';
+
 	if ($sort == 'text') {
-		$sort = 'task_text';
-		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid ORDER BY task_text ASC';
+		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid AND (task_text LIKE :filter OR task_duration LIKE :filter OR task_status LIKE :filter) ORDER BY task_text ASC';
 	} else if ($sort == 'duration') {
-		$sort = 'task_duration';
-		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid ORDER BY task_duration ASC';
+		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid AND (task_text LIKE :filter OR task_duration LIKE :filter OR task_status LIKE :filter) ORDER BY task_duration ASC';
 	} else if ($sort == 'status') {
-		$sort = 'task_status';
-		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid ORDER BY task_status ASC';
+		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid AND (task_text LIKE :filter OR task_duration LIKE :filter OR task_status LIKE :filter) ORDER BY task_status ASC';
 	} else {
-		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid ORDER BY task_ID ASC';
+		$sql = 'SELECT * FROM tasks WHERE ToDo_ID = :todolistid AND (task_text LIKE :filter OR task_duration LIKE :filter OR task_status LIKE :filter) ORDER BY task_ID ASC';
 	}
 
 	$query = $db->prepare($sql);
 	$query->execute(array(
-		':todolistid' => $id
+		':todolistid' => $id,
+		':filter' => $filter
 		));
 	$db = null;
 	return $query->fetchAll();

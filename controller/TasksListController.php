@@ -5,10 +5,10 @@ require(ROOT . 'model/ToDoListModel.php');
 
 function index($id) {
 	$sort = isset($_GET['sort']) ? $_GET['sort'] : 'id';
+	$filter =  isset($_GET['filter']) ? $_GET['filter'] : null;
 	render('tasksList/index', array(
-		'tasks' => getAllTasks($id, $sort),
-		'todolistname' => getToDoItem($id),
-		'sort' => $sort
+		'tasks' => getAllTasks($id, $sort, $filter),
+		'todolistname' => getToDoItem($id)
 		));
 }
 
