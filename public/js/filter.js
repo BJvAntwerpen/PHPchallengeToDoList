@@ -48,8 +48,6 @@ var filterModule = (function() {
 
 	///////////////////////////////////////////////////////////////////////////
 	//confirmation on delete all
-	//<?php echo URL . 'TasksList/deleteAll/' . $todolistname['ToDo_ID'] ?>
-	//http://localhost/PHPchallenge/tasksList/deleteAll/1
 
 	var deleteAll = document.getElementById('clearAll');
 
@@ -81,10 +79,5 @@ var filterModule = (function() {
 	};
 
 	deleteAll.addEventListener('click', confirmDeleteAll);
-
-
-
-
-
 
 })();//console.log()
