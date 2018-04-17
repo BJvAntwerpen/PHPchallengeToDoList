@@ -79,5 +79,4 @@ var filterModule = (function() {
 	};
 
 	deleteAll.addEventListener('click', confirmDeleteAll);
-
 })();//console.log()
